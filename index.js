@@ -30,7 +30,9 @@ const posts = [
 let mainSection = document.getElementById("main")
 function oldagram() {
 for (let i=0; i<posts.length; i++) {
-    mainSection.innerHTML +=  ` <section class="upper">
+    mainSection.innerHTML +=  `
+        <article class="section">
+            <section class="upper">
                 <img class="avatar poster" src="${posts[i].avatar}">
                 <div class="user-data">
                     <h1 class="user-name">
@@ -44,16 +46,29 @@ for (let i=0; i<posts.length; i++) {
             <img class="main-img" src="${posts[i].post}">
             <section class="lower">
                 <div class="icons">
-                    <img class="icon" src="images/icon-heart.png">
+                    <img  class="icon like" src="images/icon-heart.png">
                     <img class="icon" src="images/icon-comment.png">
                     <img class="icon" src="images/icon-dm.png">
                 </div>      
-                <h2 class="likes">${posts[i].likes} likes</h2>
+                <h2 class="total-likes likes">${posts[i].likes} likes</h2>
                 <h3 class="comments">
                     <span class="commenter">${posts[i].username}</span>
                    ${posts[i].comment}
                 </h3>
-            </section>`
+            </section>
+        </article>
+        `
+            
 }
 }
 oldagram()
+
+const likes = document.getElementsByClassName("like")
+const totalLikes = document.getElementsByClassName("total-likes")
+ 
+for (let i = 0; i < likes.length; i++) {
+    likes[i].addEventListener("click", function () {
+        posts[i].likes += 1
+        totalLikes[i].textContent = `${posts[i].likes} likes`
+    })
+}

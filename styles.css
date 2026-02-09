@@ -8,6 +8,9 @@
         margin: 0;
         padding: 0 10px;
     }
+    h3 {
+        font-weight: lighter;
+    }
    
     /*header*/
     header {
@@ -69,6 +72,9 @@
     justify-content: space-around;
     padding-bottom: 10px;
     border-bottom: 1px solid lightgray;
+}
+.commenter {
+    font-weight: bold;
 }
 
     
